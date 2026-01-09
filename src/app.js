@@ -6,10 +6,12 @@ import './modules/municipality/municipality.model.js';
 
 import userRoutes from './modules/user/user.routes.js';
 import municipalityRoutes from './modules/municipality/municipality.routes.js';
+import baseRoutes from './modules/base/base.routes.js'
 
 const app = express();
 app.use(express.json());
 
+app.use('/', baseRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/municipalities', municipalityRoutes);
 
