@@ -13,7 +13,7 @@ app.use(express.json());
 app.use('/api/users', userRoutes);
 app.use('/api/municipalities', municipalityRoutes);
 
-const PORT = process.env.PORT;
+const PORT = parseInt(process.env.PORT);
 
 const startServer = async () => {
     await testConnection();

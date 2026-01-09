@@ -8,7 +8,7 @@ services:
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASS}
-      POSTGRES_DB: ${POSTGRES_NAME}
+      POSTGRES_DB: ${POSTGRES_DB}
     ports:
       - "5432:5432"
     volumes:
@@ -22,7 +22,7 @@ services:
       - PORT=${PORT}
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_HOST=db
-      - POSTGRES_NAME=${POSTGRES_NAME}
+      - POSTGRES_DB=${POSTGRES_DB}
       - POSTGRES_PASS=${POSTGRES_PASS}
       - POSTGRES_PORT=${POSTGRES_PORT}
       - JWT_SECRET=${JWT_SECRET}
