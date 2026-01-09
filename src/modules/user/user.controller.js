@@ -52,7 +52,7 @@ export const login = async (req, res) => {
 
 export const createMunicipalityAdmin = async (req, res) => {
     try {
-        const { fullName, username, password, municipalityId } = req.body;
+        const { fullName, tcNumber, password, municipalityId } = req.body;
         const muni = await Municipality.findByPk(municipalityId);
         if (!muni) return res.status(404).json({ message: "Belediye bulunamadı" });
 
@@ -68,7 +68,7 @@ export const createMunicipalityAdmin = async (req, res) => {
         await tenantSequelize.sync(); 
         const newAdmin = await TenantUser.create({
             fullName,
-            username,
+            tcNumber,
             password: hashedPassword,
             role: 'admin'
         });
@@ -77,16 +77,16 @@ export const createMunicipalityAdmin = async (req, res) => {
 
         res.status(201).json({
             status: 'success',
-            message: `İstifadəçi yalnız ${muni.dbName} bazasında yaradıldı.`,
+            message: `Kullanıcı yalnız ${muni.dbName} veritabanında oluşturuldu.`,
             data: {
                 id: newAdmin.id,
-                username: newAdmin.username,
+                tcNumber: newAdmin.tcNumber,
                 database: muni.dbName
             }
         });
 
     } catch (error) {
         console.error(error);
-        res.status(500).json({ message: "Xəta: " + error.message });
+        res.status(500).json({ message: "Hata: " + error.message });
     }
 };

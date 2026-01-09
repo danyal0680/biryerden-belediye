@@ -11,10 +11,11 @@ export const getTenantUserModel = (tenantSequelize) => {
             type: DataTypes.STRING,
             allowNull: false
         },
-        username: {
-            type: DataTypes.STRING,
+        tcNumber: {
+            type: DataTypes.STRING(11),
             unique: true,
-            allowNull: false
+            allowNull: false,
+            defaultValue: '00000000000'
         },
         password: {
             type: DataTypes.STRING,
