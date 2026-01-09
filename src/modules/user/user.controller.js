@@ -54,7 +54,7 @@ export const createMunicipalityAdmin = async (req, res) => {
     try {
         const { fullName, username, password, municipalityId } = req.body;
         const muni = await Municipality.findByPk(municipalityId);
-        if (!muni) return res.status(404).json({ message: "Bələdiyyə tapılmadı" });
+        if (!muni) return res.status(404).json({ message: "Belediye bulunamadı" });
 
         const tenantSequelize = getTenantDb(
             muni.dbName, 
