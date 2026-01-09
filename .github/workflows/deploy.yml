@@ -15,7 +15,7 @@ jobs:
       - name: Set up SSH
         uses: webfactory/ssh-agent@v0.8.0
         with:
-          ssh-private-key: ${{ secrets.SSH_KEY }}
+          ssh-key: ${{ secrets.SSH_KEY }}
 
       - name: Deploy to Server via SSH
         uses: appleboy/ssh-action@master
@@ -26,6 +26,6 @@ jobs:
           script: |
             cd ~/biryerden-belediye
             git fetch origin
-            git pull --rebase origin master
+            git pull --rebase origin main
             docker compose down
             docker compose up -d --build
