@@ -1,6 +1,6 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import Municipality from '../municipality/municipality.model.js';
+import Municipality from '../municipality/municipality.models.js';
 import { getTenantDb } from '../../config/dynamicDb.js';
 import { getTenantUserModel } from '../tenant/tenant.models.js'; 
 
@@ -10,6 +10,9 @@ export const loginTenantUser = async (req, res) => {
     try {
         const { tcNumber, password, municipalityId } = req.body;
         const muni = await Municipality.findByPk(municipalityId);
+        // const host = req.headers.host;
+        // const subdomain = host.split('.')[0];
+        // const muni = await Municipality.findOne({ where: { subdomain: subdomain, is_active: true } });
         if (!muni) return res.status(404).json({ message: "Belediye bulunamadı." });
         tenantSequelize = getTenantDb(muni.dbName, `user_${muni.dbName}`, muni.dbPassword);
         await tenantSequelize.authenticate();

@@ -1,4 +1,4 @@
-import Municipality from './municipality.model.js';
+import Municipality from './municipality.models.js';
 import sequelize from '../../config/database.js';
 
 export const createMunicipality = async (req, res) => {

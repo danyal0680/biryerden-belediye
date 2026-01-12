@@ -1,5 +1,5 @@
 import User from './user.model.js';
-import Municipality from '../municipality/municipality.model.js';
+import Municipality from '../municipality/municipality.models.js';
 import { getTenantDb } from '../../config/dynamicDb.js';
 import { getTenantUserModel } from '../tenant/tenant.models.js';
 import bcrypt from 'bcrypt';
@@ -50,7 +50,7 @@ export const login = async (req, res) => {
 };
 
 
-export const createMunicipalityAdmin = async (req, res) => {
+export const createTenantUser = async (req, res) => {
     try {
         const { fullName, tcNumber, password, municipalityId } = req.body;
         const muni = await Municipality.findByPk(municipalityId);
