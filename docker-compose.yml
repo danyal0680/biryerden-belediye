@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 
 services:
   db:
@@ -13,6 +13,8 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    networks:
+      - biryerden-network
 
   backend:
     build: .
@@ -28,6 +30,8 @@ services:
       - JWT_SECRET=${JWT_SECRET}
     depends_on:
       - db
+    networks:
+      - biryerden-network
 
   nginx:
     image: nginx:alpine
@@ -38,18 +42,31 @@ services:
       - "443:443"
     volumes:
       - ./config/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
-      - ./certbot/conf:/etc/letsencrypt
-      - ./certbot/www:/var/www/certbot
+      - ./certbot/conf:/etc/letsencrypt  # SSL sertifikatlar buraya mount olunacaq
+      - ./certbot/www:/var/www/certbot   # webroot challenge üçün
     depends_on:
       - backend
+    networks:
+      - biryerden-network
 
   certbot:
     image: certbot/certbot
     container_name: certbot
+    restart: unless-stopped
     volumes:
       - ./certbot/conf:/etc/letsencrypt
       - ./certbot/www:/var/www/certbot
-    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+    entrypoint: >
+      /bin/sh -c "trap exit TERM;
+      while :; do
+        certbot renew --webroot -w /var/www/certbot;
+        sleep 12h & wait $${!};
+      done;"
 
 volumes:
   postgres_data:
+
+networks:
+  biryerden-network:
+    external: true
+
