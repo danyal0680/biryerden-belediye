@@ -11,10 +11,8 @@ const syncAllTenants = async () => {
             let tenantSequelize;
             try {
                 tenantSequelize = getTenantDb(muni.dbName, `user_${muni.dbName}`, muni.dbPassword);
-                
                 socialService(tenantSequelize);
                 await tenantSequelize.sync({ alter: true });
-                console.log(`✅ ${muni.name} için tablolar senkronize edildi.`);
             } catch (err) {
                 console.error(`❌ ${muni.name} veritabanına bağlanırken hata oluştu:`, err.message);
             } finally {
