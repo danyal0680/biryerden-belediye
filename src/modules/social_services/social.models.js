@@ -36,6 +36,19 @@ export const socialService = (sequelize) => {
             defaultValue: DataTypes.NOW,
             allowNull: false
         },
+        status: {
+            type: DataTypes.ENUM(
+                'Bekleyen',
+                'İnceleme Aşamasında', 
+                'Onay Bekliyor', 
+                'Onaylandı', 
+                'Reddedildi', 
+                'Teslim Edildi',
+                'İptal Edildi'
+            ),
+            defaultValue: 'Bekleyen',
+            allowNull: true
+        },
         isInvestigation: {
             type: DataTypes.STRING,
             allowNull: false
