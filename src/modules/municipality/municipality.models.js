@@ -24,6 +24,11 @@ const Municipality = sequelize.define('Municipality', {
         unique: true,
         allowNull: false
     },
+    dbUser: {
+        type: DataTypes.STRING,
+        unique: true,
+        allowNull: true,
+    },
     dbPassword: {
         type: DataTypes.STRING,
         allowNull: false

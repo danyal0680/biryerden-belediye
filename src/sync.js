@@ -10,7 +10,7 @@ const syncAllTenants = async () => {
         for (const muni of municipalities) {
             let tenantSequelize;
             try {
-                tenantSequelize = getTenantDb(muni.dbName, `user_${muni.dbName}`, muni.dbPassword);
+                tenantSequelize = getTenantDb(muni.dbName, muni.dbUser, muni.dbPassword);
                 socialService(tenantSequelize);
                 await tenantSequelize.sync({ alter: true });
             } catch (err) {

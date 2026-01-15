@@ -4,6 +4,6 @@ import { protect } from '../../middleware/super_admin_auth.middleware.js';
 
 const router = express.Router();
 
-router.post('/', protect, createMunicipality);
+router.post('/add-municipality', protect, createMunicipality);
 
 export default router;
