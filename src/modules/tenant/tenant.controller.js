@@ -5,7 +5,7 @@ import { getTenantDb } from '../../config/dynamicDb.js';
 import { getTenantUserModel } from '../tenant/tenant.models.js'; 
 
 
-export const loginTenantUser = async (req, res) => {
+const loginTenantUser = async (req, res) => {
     let tenantSequelize;
     try {
         const { tcNumber, password, municipalityId } = req.body;
@@ -49,3 +49,41 @@ export const loginTenantUser = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 };
+
+
+const tenantUserProfile = async (req, res) => {
+    let tenantSequelize;
+
+    try {
+        const { id, dbName } = req.user;
+        const muni = await Municipality.findOne({ where: { dbName } });
+
+        if (!muni) {
+            return res.status(404).json({ message: 'Belediye bulunamadı' });
+        }
+
+        tenantSequelize = getTenantDb(muni.dbName, `user_${muni.dbName}`, muni.dbPassword);
+
+        await tenantSequelize.authenticate();
+        const TenantUser = getTenantUserModel(tenantSequelize);
+        const user = await TenantUser.findByPk(id, { attributes: { exclude: ['password'] } });
+
+        if (!user) {
+            return res.status(404).json({ message: 'Kullanıcı bulunamadı' });
+        }
+
+        await tenantSequelize.close();
+        return res.status(200).json({
+            status: 'success',
+            data: user
+        });
+
+    } catch (error) {
+        if (tenantSequelize) await tenantSequelize.close();
+        console.error(error);
+        res.status(500).json({ message: error.message });
+    }
+};
+
+
+export { loginTenantUser, tenantUserProfile };
