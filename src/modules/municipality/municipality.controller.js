@@ -1,4 +1,3 @@
-import bcrypt from 'bcrypt';
 import Municipality from './municipality.models.js';
 import sequelize from '../../config/database.js';
 
@@ -12,9 +11,6 @@ const createMunicipality = async (req, res) => {
         await sequelize.query(`GRANT ALL PRIVILEGES ON DATABASE ${safeDbName} TO ${dbUser};`);
         await sequelize.query(`ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL ON TABLES TO ${dbUser};`);
         await sequelize.query(`GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO ${dbUser};`);
-        
-        const saltRounds = 10;
-        const hashedPassword = await bcrypt.hash(dbPassword, saltRounds);
 
         const newMunicipality = await Municipality.create({
             name,
@@ -22,7 +18,7 @@ const createMunicipality = async (req, res) => {
             district,
             dbUser: dbUser,
             dbName: safeDbName,
-            dbPassword: hashedPassword,
+            dbPassword: dbPassword,
             subdomain,
             url: url,
             is_active: is_active !== undefined ? is_active : true
