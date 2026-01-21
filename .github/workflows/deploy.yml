@@ -26,6 +26,7 @@ jobs:
           echo "POSTGRES_PASS='${{ secrets.POSTGRES_PASS }}'" >> .env
           echo "POSTGRES_PORT='${{ secrets.POSTGRES_PORT }}'" >> .env
           echo "JWT_SECRET='${{ secrets.JWT_SECRET }}'" >> .env
+          echo "BASE_URL='${{ secrets.BASE_URL }}'" >> .env
 
       - name: Copy .env to server
         run: |

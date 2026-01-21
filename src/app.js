@@ -6,9 +6,11 @@ import userRoutes from './modules/user/user.routes.js';
 import municipalityRoutes from './modules/municipality/municipality.routes.js';
 import socialRoutes from './modules/social_services/social.routes.js';
 import tenantRoutes from './modules/tenant/tenant.routes.js'
-import syncAllTenants from './sync.js';
+import syncAllTenants from './config/synchronization.js';
+import highwayRoutes from './modules/highway_construction/highway.routes.js';
 
 const app = express();
+const apiRouter = express.Router();
 
 const corsOptions = {
     origin: '*',
@@ -27,11 +29,16 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 app.use(express.json());
+
+app.use('/uploads', express.static('uploads'));
 app.use('/', baseRoutes);
-app.use('/api/users', userRoutes);
-app.use('/api/municipalities', municipalityRoutes);
-app.use('/api/social-services', socialRoutes);
-app.use('/api/tenant', tenantRoutes);
+apiRouter.use('/users', userRoutes);
+apiRouter.use('/municipalities', municipalityRoutes);
+apiRouter.use('/social-services', socialRoutes);
+apiRouter.use('/tenant', tenantRoutes);
+apiRouter.use('/highway-construction', highwayRoutes);
+
+app.use('/api', apiRouter);
 
 const PORT = process.env.PORT;
 

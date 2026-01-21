@@ -1,6 +1,6 @@
 import { DataTypes } from 'sequelize';
 
-export const socialService = (sequelize) => {
+const socialService = (sequelize) => {
     return sequelize.define('SocialService', {
         id: {
             type: DataTypes.UUID,
@@ -58,3 +58,5 @@ export const socialService = (sequelize) => {
         underscored: true
     })
 }
+
+export { socialService };

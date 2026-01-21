@@ -1,0 +1,606 @@
+{
+    "projects": [
+        {
+            "id": "proj-1",
+            "projectCode": "KY-2025-042",
+            "projectName": "Cumhuriyet Caddesi Asfalt Kaplama",
+            "description": "Sirinevler ve Bahcelievler mahallelerini baglayan 3.5 km ana arter yol kaplamasi yenileniyor.",
+            "projectType": "Asfalt Kaplama",
+            "priority": "Yuksek",
+            "category": "renewal",
+            "location": {
+                "district": "Sirinevler Mah.",
+                "street": "Cumhuriyet Cad.",
+                "startPoint": "Cumhuriyet Cad. No: 1",
+                "endPoint": "Cumhuriyet Cad. No: 150"
+            },
+            "scope": {
+                "length": 3.5,
+                "width": 8,
+                "totalArea": 28000,
+                "materialSummary": "~850 ton asfalt"
+            },
+            "dates": {
+                "plannedStart": "2024-11-15",
+                "plannedEnd": "2025-01-30",
+                "duration": 76,
+                "elapsedDays": 45,
+                "remainingDays": 31,
+                "delayDays": 0
+            },
+            "status": "construction",
+            "progress": {
+                "physical": 78,
+                "target": 85,
+                "status": "below-target",
+                "lastUpdate": "2024-12-28T16:30:00Z",
+                "updatedBy": "Mehmet DEMIR"
+            },
+            "budget": {
+                "total": 5200000,
+                "used": 3224000,
+                "remaining": 1976000,
+                "percentage": 62,
+                "status": "on-budget"
+            },
+            "team": {
+                "projectManager": {
+                    "name": "Mehmet DEMIR",
+                    "phone": "05321234567"
+                },
+                "assignedTeams": [ "Ekip #3", "Ekip #5" ]
+            },
+            "lastUpdate": {
+                "date": "2024-12-28T16:30:00Z",
+                "updatedBy": "Mehmet DEMIR"
+            },
+            "isNew": false,
+            "isFavorite": false,
+            "filters": {
+                "districts": [ "Tumu", "Sirinevler Mah." ],
+                "projectTypes": [ "Tumu", "Asfalt Kaplama" ],
+                "projectManagers": [ "Tumu", "Mehmet DEMIR", "Atanmamis" ],
+                "budgetRanges": [ "Tumu", "2M - 5M" ],
+                "priorityLevels": [ "Yuksek", "Normal", "Dusuk" ],
+                "projectSizes": [ "Tumu", "Buyuk (2-5km)" ]
+            },
+            "teams": [
+                { "id": "team-3", "name": "Ekip #3", "memberCount": 8 },
+                { "id": "team-5", "name": "Ekip #5", "memberCount": 7 }
+            ],
+            "projectManagers": [
+                { "id": "pm-1", "name": "Mehmet DEMIR", "activeProjects": 5 }
+            ],
+            "detail": {
+                "projectCode": "KY-2025-042",
+                "projectName": "Cumhuriyet Caddesi Asfalt Kaplama",
+                "description": "Sirinevler ve Bahcelievler mahallelerini baglayan 3.5 km ana arter yol kaplamasi yenileniyor. Trafik akisinin iyilestirilmesi ve yol kalitesinin artirilmasi hedefleniyor.",
+                "projectType": "Asfalt Kaplama",
+                "priority": "Yuksek",
+                "category": "renewal",
+                "location": {
+                    "district": "Sirinevler Mah.",
+                    "street": "Cumhuriyet Cad.",
+                    "startPoint": "Cumhuriyet Cad. No: 1",
+                    "endPoint": "Cumhuriyet Cad. No: 150",
+                    "coordinates": {
+                        "start": { "lat": 40.1885, "lng": 29.061 },
+                        "end": { "lat": 40.192, "lng": 29.065 }
+                    }
+                },
+                "scope": {
+                    "length": 3.5,
+                    "width": 8,
+                    "totalArea": 28000,
+                    "materialSummary": "~850 ton asfalt",
+                    "materials": [
+                        { "name": "Asfalt", "quantity": 850, "unit": "ton" },
+                        { "name": "Agrega", "quantity": 1200, "unit": "ton" },
+                        { "name": "Bitum", "quantity": 75, "unit": "ton" }
+                    ]
+                },
+                "dates": {
+                    "plannedStart": "2024-11-15",
+                    "plannedEnd": "2025-01-30",
+                    "actualStart": "2024-11-15",
+                    "duration": 76,
+                    "elapsedDays": 45,
+                    "remainingDays": 31,
+                    "delayDays": 0
+                },
+                "status": "construction",
+                "progress": {
+                    "physical": 78,
+                    "target": 85,
+                    "status": "below-target",
+                    "lastUpdate": "2024-12-28T16:30:00Z",
+                    "updatedBy": "Mehmet DEMIR",
+                    "phases": [
+                        { "name": "Hazirlik Asamasi", "progress": 100, "status": "completed" },
+                        { "name": "Zemin Hazirligi", "progress": 100, "status": "completed" },
+                        { "name": "Asfalt Serme", "progress": 85, "status": "in-progress" },
+                        { "name": "Kalite Kontrolu", "progress": 0, "status": "pending" },
+                        { "name": "Son Kontroller", "progress": 0, "status": "pending" },
+                        { "name": "Teslim", "progress": 0, "status": "pending" }
+                    ]
+                },
+                "budget": {
+                    "total": 5200000,
+                    "used": 3224000,
+                    "remaining": 1976000,
+                    "percentage": 62,
+                    "status": "on-budget",
+                    "breakdown": [
+                        { "category": "Malzeme", "amount": 1850000, "percentage": 57 },
+                        { "category": "Iscilik", "amount": 1120000, "percentage": 35 },
+                        { "category": "Makine Kirasi", "amount": 180000, "percentage": 6 },
+                        { "category": "Diger", "amount": 74000, "percentage": 2 }
+                    ],
+                    "expenses": [
+                        {
+                            "id": "exp-1",
+                            "date": "2024-12-28",
+                            "category": "Malzeme",
+                            "description": "Asfalt (200 ton)",
+                            "amount": 185000,
+                            "addedBy": "Mehmet DEMIR"
+                        },
+                        {
+                            "id": "exp-2",
+                            "date": "2024-12-27",
+                            "category": "Iscilik",
+                            "description": "Haftalik iscilik",
+                            "amount": 125000,
+                            "addedBy": "Mehmet DEMIR"
+                        }
+                    ]
+                },
+                "team": {
+                    "projectManager": {
+                        "id": "pm-1",
+                        "name": "Mehmet DEMIR",
+                        "phone": "05321234567",
+                        "email": "mehmet.demir@mudanya.bel.tr",
+                        "photo": "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=200&h=200&auto=format&fit=crop"
+                    },
+                    "assignedTeams": [
+                        {
+                            "id": "team-3",
+                            "name": "Ekip #3",
+                            "memberCount": 8,
+                            "leader": "Ahmet YILMAZ"
+                        },
+                        {
+                            "id": "team-5",
+                            "name": "Ekip #5",
+                            "memberCount": 7,
+                            "leader": "Ayse KAYA"
+                        }
+                    ]
+                },
+                "photos": [
+                    {
+                        "id": "photo-1",
+                        "url": "https://plus.unsplash.com/premium_photo-1681691912442-68c4179c530c?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                        "thumbnailUrl": "https://plus.unsplash.com/premium_photo-1681691912442-68c4179c530c?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                        "title": "Asfalt Serme Islemi - Km 1.2",
+                        "description": "Ilk asama asfalt serme islemi tamamlandi. Kalite kontrolu yapildi, sorun yok.",
+                        "uploadedAt": "2024-12-29T14:30:00Z",
+                        "uploadedBy": {
+                            "id": "user-5",
+                            "name": "Ahmet YILMAZ",
+                            "team": "Ekip #3"
+                        },
+                        "location": "Cumhuriyet Cad. Km 1.2",
+                        "tags": [ "asfalt", "serme", "birinci-asama" ],
+                        "fileSize": 2458624,
+                        "dimensions": { "width": 1920, "height": 1080 }
+                    },
+                    {
+                        "id": "photo-2",
+                        "url": "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=1200&auto=format&fit=crop",
+                        "thumbnailUrl": "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=400&auto=format&fit=crop",
+                        "title": "Kalip Olusturma",
+                        "description": "Yol kenari kalip calismalari devam ediyor.",
+                        "uploadedAt": "2024-12-29T15:45:00Z",
+                        "uploadedBy": {
+                            "id": "user-5",
+                            "name": "Ahmet YILMAZ",
+                            "team": "Ekip #3"
+                        },
+                        "location": "Cumhuriyet Cad. Km 1.3",
+                        "tags": [ "kalip", "hazirlik" ],
+                        "fileSize": 3124856,
+                        "dimensions": { "width": 1920, "height": 1080 }
+                    },
+                    {
+                        "id": "photo-3",
+                        "url": "https://images.unsplash.com/photo-1622612063021-116cc3407145?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                        "thumbnailUrl": "https://images.unsplash.com/photo-1622612063021-116cc3407145?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                        "title": "Ekip Calismasi",
+                        "description": "Ekip #3 ve Ekip #5 koordineli calisiyor.",
+                        "uploadedAt": "2024-12-29T16:20:00Z",
+                        "uploadedBy": {
+                            "id": "user-8",
+                            "name": "Ayse KAYA",
+                            "team": "Ekip #5"
+                        },
+                        "location": "Cumhuriyet Cad. Km 1.4",
+                        "tags": [ "ekip", "koordinasyon" ],
+                        "fileSize": 2856421,
+                        "dimensions": { "width": 1920, "height": 1080 }
+                    },
+                    {
+                        "id": "photo-4",
+                        "url": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=1200&auto=format&fit=crop",
+                        "thumbnailUrl": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=400&auto=format&fit=crop",
+                        "title": "Genel Gorunum",
+                        "description": "Gunun sonunda tamamlanan bolum genel gorunum.",
+                        "uploadedAt": "2024-12-29T17:00:00Z",
+                        "uploadedBy": {
+                            "id": "user-5",
+                            "name": "Ahmet YILMAZ",
+                            "team": "Ekip #3"
+                        },
+                        "location": "Cumhuriyet Cad. Km 1.2-1.8 arasi",
+                        "tags": [ "genel", "tamamlanan", "gunluk-rapor" ],
+                        "fileSize": 3568742,
+                        "dimensions": { "width": 1920, "height": 1080 }
+                    }
+                ],
+                "documents": [
+                    {
+                        "id": "doc-1",
+                        "category": "Proje Plani",
+                        "fileName": "Proje_Plani_v2.pdf",
+                        "uploadedAt": "2024-11-15",
+                        "fileSize": 2048000,
+                        "uploadedBy": "Mehmet DEMIR",
+                        "url": "/documents/proj-1/Proje_Plani_v2.pdf"
+                    }
+                ],
+                "notes": [
+                    {
+                        "id": "note-1",
+                        "content": "Bugun Km 1.2 - 1.8 arasi asfalt serme islemi tamamlandi. Hava sartlari uygundu. Kalite kontrol yapildi, sorun yok. Yarin Km 1.8 - 2.5 arasi baslanacak.",
+                        "author": {
+                            "id": "pm-1",
+                            "name": "Mehmet DEMIR",
+                            "photo": "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=100&h=100&auto=format&fit=crop"
+                        },
+                        "createdAt": "2024-12-29T16:30:00Z",
+                        "tags": [ "ilerleme", "asama-3", "pozitif" ],
+                        "attachments": [ ]
+                    },
+                    {
+                        "id": "note-2",
+                        "content": "DIKKAT: Yarin sabah saat 10:00'da malzeme teslimati var. Ekiplerin hazir olmasi gerekiyor.",
+                        "author": {
+                            "id": "manager-1",
+                            "name": "Hasan YILDIZ",
+                            "photo": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=100&h=100&auto=format&fit=crop"
+                        },
+                        "createdAt": "2024-12-28T09:15:00Z",
+                        "tags": [ "dikkat", "malzeme", "lojistik" ],
+                        "attachments": [ ]
+                    }
+                ],
+                "timeline": [
+                    { "date": "2024-11-15", "event": "Proje Baslangici", "status": "completed" },
+                    { "date": "2024-11-20", "event": "Ihale Tamamlandi", "status": "completed" },
+                    { "date": "2024-11-25", "event": "Insaat Basladi", "status": "completed" },
+                    { "date": "2025-01-15", "event": "Hedef %90 Ilerleme", "status": "upcoming" },
+                    { "date": "2025-01-30", "event": "Proje Tamamlanma (Hedef)", "status": "upcoming" }
+                ],
+                "reportUrl": "",
+                "lastUpdate": {
+                    "date": "2024-12-28T16:30:00Z",
+                    "updatedBy": "Mehmet DEMIR"
+                },
+                "isNew": false,
+                "isFavorite": false
+            }
+        },
+        {
+            "id": "proj-1",
+            "projectCode": "KY-2025-042",
+            "projectName": "Cumhuriyet Caddesi Asfalt Kaplama",
+            "description": "Sirinevler ve Bahcelievler mahallelerini baglayan 3.5 km ana arter yol kaplamasi yenileniyor.",
+            "projectType": "Asfalt Kaplama",
+            "priority": "Yuksek",
+            "category": "renewal",
+            "location": {
+                "district": "Sirinevler Mah.",
+                "street": "Cumhuriyet Cad.",
+                "startPoint": "Cumhuriyet Cad. No: 1",
+                "endPoint": "Cumhuriyet Cad. No: 150"
+            },
+            "scope": {
+                "length": 3.5,
+                "width": 8,
+                "totalArea": 28000,
+                "materialSummary": "~850 ton asfalt"
+            },
+            "dates": {
+                "plannedStart": "2024-11-15",
+                "plannedEnd": "2025-01-30",
+                "duration": 76,
+                "elapsedDays": 45,
+                "remainingDays": 31,
+                "delayDays": 0
+            },
+            "status": "construction",
+            "progress": {
+                "physical": 78,
+                "target": 85,
+                "status": "below-target",
+                "lastUpdate": "2024-12-28T16:30:00Z",
+                "updatedBy": "Mehmet DEMIR"
+            },
+            "budget": {
+                "total": 5200000,
+                "used": 3224000,
+                "remaining": 1976000,
+                "percentage": 62,
+                "status": "on-budget"
+            },
+            "team": {
+                "projectManager": {
+                    "name": "Mehmet DEMIR",
+                    "phone": "05321234567"
+                },
+                "assignedTeams": [ "Ekip #3", "Ekip #5" ]
+            },
+            "lastUpdate": {
+                "date": "2024-12-28T16:30:00Z",
+                "updatedBy": "Mehmet DEMIR"
+            },
+            "isNew": false,
+            "isFavorite": false,
+            "filters": {
+                "districts": [ "Tumu", "Sirinevler Mah." ],
+                "projectTypes": [ "Tumu", "Asfalt Kaplama" ],
+                "projectManagers": [ "Tumu", "Mehmet DEMIR", "Atanmamis" ],
+                "budgetRanges": [ "Tumu", "2M - 5M" ],
+                "priorityLevels": [ "Yuksek", "Normal", "Dusuk" ],
+                "projectSizes": [ "Tumu", "Buyuk (2-5km)" ]
+            },
+            "teams": [
+                { "id": "team-3", "name": "Ekip #3", "memberCount": 8 },
+                { "id": "team-5", "name": "Ekip #5", "memberCount": 7 }
+            ],
+            "projectManagers": [
+                { "id": "pm-1", "name": "Mehmet DEMIR", "activeProjects": 5 }
+            ],
+            "detail": {
+                "projectCode": "KY-2025-042",
+                "projectName": "Cumhuriyet Caddesi Asfalt Kaplama",
+                "description": "Sirinevler ve Bahcelievler mahallelerini baglayan 3.5 km ana arter yol kaplamasi yenileniyor. Trafik akisinin iyilestirilmesi ve yol kalitesinin artirilmasi hedefleniyor.",
+                "projectType": "Asfalt Kaplama",
+                "priority": "Yuksek",
+                "category": "renewal",
+                "location": {
+                    "district": "Sirinevler Mah.",
+                    "street": "Cumhuriyet Cad.",
+                    "startPoint": "Cumhuriyet Cad. No: 1",
+                    "endPoint": "Cumhuriyet Cad. No: 150",
+                    "coordinates": {
+                        "start": { "lat": 40.1885, "lng": 29.061 },
+                        "end": { "lat": 40.192, "lng": 29.065 }
+                    }
+                },
+                "scope": {
+                    "length": 3.5,
+                    "width": 8,
+                    "totalArea": 28000,
+                    "materialSummary": "~850 ton asfalt",
+                    "materials": [
+                        { "name": "Asfalt", "quantity": 850, "unit": "ton" },
+                        { "name": "Agrega", "quantity": 1200, "unit": "ton" },
+                        { "name": "Bitum", "quantity": 75, "unit": "ton" }
+                    ]
+                },
+                "dates": {
+                    "plannedStart": "2024-11-15",
+                    "plannedEnd": "2025-01-30",
+                    "actualStart": "2024-11-15",
+                    "duration": 76,
+                    "elapsedDays": 45,
+                    "remainingDays": 31,
+                    "delayDays": 0
+                },
+                "status": "construction",
+                "progress": {
+                    "physical": 78,
+                    "target": 85,
+                    "status": "below-target",
+                    "lastUpdate": "2024-12-28T16:30:00Z",
+                    "updatedBy": "Mehmet DEMIR",
+                    "phases": [
+                        { "name": "Hazirlik Asamasi", "progress": 100, "status": "completed" },
+                        { "name": "Zemin Hazirligi", "progress": 100, "status": "completed" },
+                        { "name": "Asfalt Serme", "progress": 85, "status": "in-progress" },
+                        { "name": "Kalite Kontrolu", "progress": 0, "status": "pending" },
+                        { "name": "Son Kontroller", "progress": 0, "status": "pending" },
+                        { "name": "Teslim", "progress": 0, "status": "pending" }
+                    ]
+                },
+                "budget": {
+                    "total": 5200000,
+                    "used": 3224000,
+                    "remaining": 1976000,
+                    "percentage": 62,
+                    "status": "on-budget",
+                    "breakdown": [
+                        { "category": "Malzeme", "amount": 1850000, "percentage": 57 },
+                        { "category": "Iscilik", "amount": 1120000, "percentage": 35 },
+                        { "category": "Makine Kirasi", "amount": 180000, "percentage": 6 },
+                        { "category": "Diger", "amount": 74000, "percentage": 2 }
+                    ],
+                    "expenses": [
+                        {
+                            "id": "exp-1",
+                            "date": "2024-12-28",
+                            "category": "Malzeme",
+                            "description": "Asfalt (200 ton)",
+                            "amount": 185000,
+                            "addedBy": "Mehmet DEMIR"
+                        },
+                        {
+                            "id": "exp-2",
+                            "date": "2024-12-27",
+                            "category": "Iscilik",
+                            "description": "Haftalik iscilik",
+                            "amount": 125000,
+                            "addedBy": "Mehmet DEMIR"
+                        }
+                    ]
+                },
+                "team": {
+                    "projectManager": {
+                        "id": "pm-1",
+                        "name": "Mehmet DEMIR",
+                        "phone": "05321234567",
+                        "email": "mehmet.demir@mudanya.bel.tr",
+                        "photo": "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=200&h=200&auto=format&fit=crop"
+                    },
+                    "assignedTeams": [
+                        {
+                            "id": "team-3",
+                            "name": "Ekip #3",
+                            "memberCount": 8,
+                            "leader": "Ahmet YILMAZ"
+                        },
+                        {
+                            "id": "team-5",
+                            "name": "Ekip #5",
+                            "memberCount": 7,
+                            "leader": "Ayse KAYA"
+                        }
+                    ]
+                },
+                "photos": [
+                    {
+                        "id": "photo-1",
+                        "url": "https://plus.unsplash.com/premium_photo-1681691912442-68c4179c530c?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                        "thumbnailUrl": "https://plus.unsplash.com/premium_photo-1681691912442-68c4179c530c?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                        "title": "Asfalt Serme Islemi - Km 1.2",
+                        "description": "Ilk asama asfalt serme islemi tamamlandi. Kalite kontrolu yapildi, sorun yok.",
+                        "uploadedAt": "2024-12-29T14:30:00Z",
+                        "uploadedBy": {
+                            "id": "user-5",
+                            "name": "Ahmet YILMAZ",
+                            "team": "Ekip #3"
+                        },
+                        "location": "Cumhuriyet Cad. Km 1.2",
+                        "tags": [ "asfalt", "serme", "birinci-asama" ],
+                        "fileSize": 2458624,
+                        "dimensions": { "width": 1920, "height": 1080 }
+                    },
+                    {
+                        "id": "photo-2",
+                        "url": "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=1200&auto=format&fit=crop",
+                        "thumbnailUrl": "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=400&auto=format&fit=crop",
+                        "title": "Kalip Olusturma",
+                        "description": "Yol kenari kalip calismalari devam ediyor.",
+                        "uploadedAt": "2024-12-29T15:45:00Z",
+                        "uploadedBy": {
+                            "id": "user-5",
+                            "name": "Ahmet YILMAZ",
+                            "team": "Ekip #3"
+                        },
+                        "location": "Cumhuriyet Cad. Km 1.3",
+                        "tags": [ "kalip", "hazirlik" ],
+                        "fileSize": 3124856,
+                        "dimensions": { "width": 1920, "height": 1080 }
+                    },
+                    {
+                        "id": "photo-3",
+                        "url": "https://images.unsplash.com/photo-1622612063021-116cc3407145?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                        "thumbnailUrl": "https://images.unsplash.com/photo-1622612063021-116cc3407145?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                        "title": "Ekip Calismasi",
+                        "description": "Ekip #3 ve Ekip #5 koordineli calisiyor.",
+                        "uploadedAt": "2024-12-29T16:20:00Z",
+                        "uploadedBy": {
+                            "id": "user-8",
+                            "name": "Ayse KAYA",
+                            "team": "Ekip #5"
+                        },
+                        "location": "Cumhuriyet Cad. Km 1.4",
+                        "tags": [ "ekip", "koordinasyon" ],
+                        "fileSize": 2856421,
+                        "dimensions": { "width": 1920, "height": 1080 }
+                    },
+                    {
+                        "id": "photo-4",
+                        "url": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=1200&auto=format&fit=crop",
+                        "thumbnailUrl": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=400&auto=format&fit=crop",
+                        "title": "Genel Gorunum",
+                        "description": "Gunun sonunda tamamlanan bolum genel gorunum.",
+                        "uploadedAt": "2024-12-29T17:00:00Z",
+                        "uploadedBy": {
+                            "id": "user-5",
+                            "name": "Ahmet YILMAZ",
+                            "team": "Ekip #3"
+                        },
+                        "location": "Cumhuriyet Cad. Km 1.2-1.8 arasi",
+                        "tags": [ "genel", "tamamlanan", "gunluk-rapor" ],
+                        "fileSize": 3568742,
+                        "dimensions": { "width": 1920, "height": 1080 }
+                    }
+                ],
+                "documents": [
+                    {
+                        "id": "doc-1",
+                        "category": "Proje Plani",
+                        "fileName": "Proje_Plani_v2.pdf",
+                        "uploadedAt": "2024-11-15",
+                        "fileSize": 2048000,
+                        "uploadedBy": "Mehmet DEMIR",
+                        "url": "/documents/proj-1/Proje_Plani_v2.pdf"
+                    }
+                ],
+                "notes": [
+                    {
+                        "id": "note-1",
+                        "content": "Bugun Km 1.2 - 1.8 arasi asfalt serme islemi tamamlandi. Hava sartlari uygundu. Kalite kontrol yapildi, sorun yok. Yarin Km 1.8 - 2.5 arasi baslanacak.",
+                        "author": {
+                            "id": "pm-1",
+                            "name": "Mehmet DEMIR",
+                            "photo": "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=100&h=100&auto=format&fit=crop"
+                        },
+                        "createdAt": "2024-12-29T16:30:00Z",
+                        "tags": [ "ilerleme", "asama-3", "pozitif" ],
+                        "attachments": [ ]
+                    },
+                    {
+                        "id": "note-2",
+                        "content": "DIKKAT: Yarin sabah saat 10:00'da malzeme teslimati var. Ekiplerin hazir olmasi gerekiyor.",
+                        "author": {
+                            "id": "manager-1",
+                            "name": "Hasan YILDIZ",
+                            "photo": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=100&h=100&auto=format&fit=crop"
+                        },
+                        "createdAt": "2024-12-28T09:15:00Z",
+                        "tags": [ "dikkat", "malzeme", "lojistik" ],
+                        "attachments": [ ]
+                    }
+                ],
+                "timeline": [
+                    { "date": "2024-11-15", "event": "Proje Baslangici", "status": "completed" },
+                    { "date": "2024-11-20", "event": "Ihale Tamamlandi", "status": "completed" },
+                    { "date": "2024-11-25", "event": "Insaat Basladi", "status": "completed" },
+                    { "date": "2025-01-15", "event": "Hedef %90 Ilerleme", "status": "upcoming" },
+                    { "date": "2025-01-30", "event": "Proje Tamamlanma (Hedef)", "status": "upcoming" }
+                ],
+                "reportUrl": "",
+                "lastUpdate": {
+                    "date": "2024-12-28T16:30:00Z",
+                    "updatedBy": "Mehmet DEMIR"
+                },
+                "isNew": false,
+                "isFavorite": false
+            }
+        }
+    ]
+}
