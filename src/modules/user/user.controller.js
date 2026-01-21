@@ -58,7 +58,7 @@ export const createTenantUser = async (req, res) => {
 
         const tenantSequelize = getTenantDb(
             muni.dbName, 
-            `user_${muni.dbName}`, 
+            muni.dbUser, 
             muni.dbPassword
         );
 

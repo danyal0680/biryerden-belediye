@@ -14,7 +14,7 @@ const loginTenantUser = async (req, res) => {
         // const subdomain = host.split('.')[0];
         // const muni = await Municipality.findOne({ where: { subdomain: subdomain, is_active: true } });
         if (!muni) return res.status(404).json({ message: "Belediye bulunamadı." });
-        tenantSequelize = getTenantDb(muni.dbName, `user_${muni.dbName}`, muni.dbPassword);
+        tenantSequelize = getTenantDb(muni.dbName, muni.dbUser, muni.dbPassword);
         await tenantSequelize.authenticate();
         const TenantUser = getTenantUserModel(tenantSequelize);
 
@@ -62,7 +62,7 @@ const tenantUserProfile = async (req, res) => {
             return res.status(404).json({ message: 'Belediye bulunamadı' });
         }
 
-        tenantSequelize = getTenantDb(muni.dbName, `user_${muni.dbName}`, muni.dbPassword);
+        tenantSequelize = getTenantDb(muni.dbName, muni.dbUser, muni.dbPassword);
 
         await tenantSequelize.authenticate();
         const TenantUser = getTenantUserModel(tenantSequelize);
