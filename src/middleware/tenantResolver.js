@@ -15,7 +15,7 @@ export const resolveTenant = async (req, res, next) => {
             return res.status(404).json({ message: "Belediye bulunamadı" });
         }
 
-        const tenantDb = getTenantDb(muni.dbName, `${muni.dbName}`, muni.dbPassword);        
+        const tenantDb = getTenantDb(muni.dbName, muni.dbUser, muni.dbPassword);        
         req.tenantDb = tenantDb;
         req.muni = muni;
         
