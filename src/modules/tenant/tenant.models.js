@@ -13,7 +13,6 @@ export const getTenantUserModel = (tenantSequelize) => {
         },
         tcNumber: {
             type: DataTypes.STRING(11),
-            unique: true,
             allowNull: false,
             defaultValue: '00000000000'
         },
@@ -27,6 +26,12 @@ export const getTenantUserModel = (tenantSequelize) => {
         }
     }, {
         tableName: 'users',
-        underscored: true
+        underscored: true,
+        indexes: [
+            {
+                unique: true,
+                fields: ['tc_number']
+            }
+        ]
     });
 };
