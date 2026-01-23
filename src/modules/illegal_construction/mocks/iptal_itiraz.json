@@ -1,0 +1,34 @@
+[
+    {
+        "id": 1,
+        "liste_kategorisi": "İptal İtirazları",
+        "sira_no": 1,
+        "tc_kimlik_no": "30187268252",
+        "adi_soyadi": "SUAT UZUN",
+        "yeni_tc_kimlik_no": 12938815434,
+        "yeni_adi_soyadi": "AZİZE SUBAŞI",
+        "insaat_adresi": {
+            "mahalle": "KUMLUKALAN",
+            "cadde_sokak": "SAMANLI CAD.",
+            "no": "47 YANI"
+        },
+        "iptal_itiraz_nedeni": "MAHKEME PARA CZ.İPTALİ",
+        "zaptin": {
+            "tarihi": "1/6/2026",
+            "no": "20260101"
+        },
+        "ada_no": 2693,
+        "parsel_no": 20,
+        "encumen_gundem_tarihi": "1/13/2026",
+        "encumen_karari": {
+            "tarihi": "1/20/2026",
+            "no": "20-21"
+        },
+        "ceza_tutari": "10,007,020.35 TL",
+        "iletisim_bilgileri": {
+            "ikamet_adresi": null,
+            "irtibat_telefonu": null
+        },
+        "teblig": "1/21/2026"
+    }
+]

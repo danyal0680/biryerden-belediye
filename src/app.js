@@ -8,6 +8,7 @@ import socialRoutes from './modules/social_services/social.routes.js';
 import tenantRoutes from './modules/tenant/tenant.routes.js'
 import syncAllTenants from './config/synchronization.js';
 import highwayRoutes from './modules/highway_construction/highway.routes.js';
+import illegalRoutes from './modules/illegal_construction/illegal.routes.js';
 
 const app = express();
 const apiRouter = express.Router();
@@ -37,6 +38,7 @@ apiRouter.use('/municipalities', municipalityRoutes);
 apiRouter.use('/social-services', socialRoutes);
 apiRouter.use('/tenant', tenantRoutes);
 apiRouter.use('/highway-construction', highwayRoutes);
+apiRouter.use('/illegal-construction', illegalRoutes);
 
 app.use('/api', apiRouter);
 

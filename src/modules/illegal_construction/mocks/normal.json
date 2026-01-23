@@ -1,0 +1,36 @@
+[
+    {
+        "id": 1,
+        "liste_kategorisi": "Ceza Tutanagi",
+        "sira_no": 1,
+        "tc_kimlik_no": "30187268252",
+        "adi_soyadi": "SUAT UZUN",
+        "insaat_adresi": {
+            "mahalle": "KUMLUKALAN",
+            "cadde_sokak": "SAMANLI CAD.",
+            "no": "47 YANI"
+        },
+        "tanzim_edilen_zaptin_konumu": null,
+        "zaptin": {
+            "tarihi": "1/6/2026",
+            "no": "20260101"
+        },
+        "ada_no": null,
+        "parsel_no": "373-374",
+        "encumen_karari": {
+            "tarihi": "1/20/2026",
+            "no": "20-21"
+        },
+        "ceza_tutari": "10,007,020.35 TL",
+        "iletisim_bilgileri": {
+            "ikamet_adresi": null,
+            "irtibat_telefonu": null
+        },
+        "teblig_tarihi": "1/21/2026",
+        "m2": "2698.96",
+        "tahakkuk_edilen_tarih": "1/21/2026",
+        "suc_duyurusu_tarihi": "1/21/2026",
+        "yapi_sinifi": "Depo",
+        "ihale": "2026/001"
+    }
+]

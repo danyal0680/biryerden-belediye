@@ -1,0 +1,34 @@
+[
+    {
+        "id": 1,
+        "liste_kategorisi": "Yıkım Yapılanlar",
+        "sira_no": 1,
+        "tc_kimlik_no": 58633559150,
+        "   ": "27.06.2013 TARİHİNDE ŞAHSIN KENDİSİ TARAFINDAN YIKILMIŞTIR.",
+        "adi_soyadi": "ÖMER AKSU (KÖRFEZ DERSHANESİ) (ÖZGÜR DEMİR)",
+        "insaat_adresi": {
+            "mahalle": "YENİDOĞAN",
+            "cadde_sokak": "BURSA YOLU",
+            "no": "20"
+        },
+        "tanzim_edilen_zaptin_konusu": "TARIM ARAZİSİNDE BASİT YAPI",
+        "zaptin": {
+            "tarihi": "10/6/2010",
+            "no": "3/112"
+        },
+        "ada_no": "208",
+        "parsel_no": "30",
+        "encumen_karari": {
+            "tarihi": "7/31/2012",
+            "no": "623-624"
+        },
+        "ceza_tutari": "654.14 TL",
+        "iletisim_bilgileri": {
+            "ikamet_adresi": null,
+            "irtibat_telefonu": null
+        },
+        "teblig": "EDİLDİ",
+        "yikim_masrafi": null,
+        "yikim_ucreti_tebligi": null
+    }
+]

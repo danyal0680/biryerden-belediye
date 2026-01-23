@@ -1,0 +1,35 @@
+[
+    {
+        "id": 1,
+        "liste_kategorisi": "Yapı Kayıt İptal Olan",
+        "sira_no": 5,
+        "tc_kimlik_no": "12345678901",
+        "adi_soyadi": "AHMET YILMAZ",
+        "insaat_adresi": {
+            "mahalle": "MERKEZ MAHALLESİ",
+            "cadde_sokak": "ATATÜRK CAD.",
+            "no": "10"
+        },
+        "zaptin": {
+            "tarihi": "05/02/2026",
+            "no": "2026/055"
+        },
+        "encumen_gundem_tarihi": "15/02/2026",
+        "ada_no": "1453",
+        "parsel_no": "12",
+        "encumen_karari": {
+            "tarihi": "20/02/2026",
+            "no": "120"
+        },
+        "iletisim_bilgileri": {
+            "ikamet_adresi": "YENİDOĞAN MAH. LALE SOK. NO:5",
+            "irtibat_telefonu": "0555 123 45 67"
+        },
+        "teblig": "25/02/2026",
+        "mevcut_kat": "3",
+        "izin_alinan_kat": "2",
+        "toplam_yapi_alani_m2": "350",
+        "belge_no": "ABC-123456",
+        "basvuru_no": "987654321"
+    }
+]
