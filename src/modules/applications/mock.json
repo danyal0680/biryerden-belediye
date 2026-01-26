@@ -1,0 +1,88 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "file_no": 310,
+            "application_no": 2026210,
+            "national_id": "10111213141",
+            "full_name": "Tarkan Tevetoğlu",
+            "application_date": "2026-01-19T21:00:00.000Z",
+            "aid_name": "KIYAFET",
+            "application_status": "İncelemede",
+            "delivery_date": null,
+            "gender": "Erkek",
+            "age": 51,
+            "marital_status": "Evli"
+        },
+        {
+            "id": 2,
+            "file_no": 309,
+            "application_no": 2026209,
+            "national_id": "99001122334",
+            "full_name": "Sıla Gençoğlu",
+            "application_date": "2026-01-17T21:00:00.000Z",
+            "aid_name": "KIYAFET",
+            "application_status": "Onaylandı",
+            "delivery_date": "2026-01-21",
+            "gender": "Kadın",
+            "age": 43,
+            "marital_status": "Bekar"
+        },
+        {
+            "id": 3,
+            "file_no": 210,
+            "application_no": 2026110,
+            "national_id": "19283746501",
+            "full_name": "Burak Şahin",
+            "application_date": "2026-01-14T21:00:00.000Z",
+            "aid_name": "ERZAK",
+            "application_status": "Onaylandı",
+            "delivery_date": "2026-01-20",
+            "gender": "Erkek",
+            "age": 25,
+            "marital_status": "Bekar"
+        },
+        {
+            "id": 4,
+            "file_no": 209,
+            "application_no": 2026109,
+            "national_id": "98091021324",
+            "full_name": "Hülya Aydın",
+            "application_date": "2026-01-13T21:00:00.000Z",
+            "aid_name": "ERZAK",
+            "application_status": "İncelemede",
+            "delivery_date": null,
+            "gender": "Kadın",
+            "age": 47,
+            "marital_status": "Evli"
+        },
+        {
+            "id": 5,
+            "file_no": 410,
+            "application_no": 2026310,
+            "national_id": "11221122112",
+            "full_name": "Fatma Girik",
+            "application_date": "2026-01-21T21:00:00.000Z",
+            "aid_name": "SICAK_YEMEK",
+            "application_status": "Onaylandı",
+            "delivery_date": "2026-01-22",
+            "gender": "Kadın",
+            "age": 79,
+            "marital_status": "Dul"
+        },
+        {
+            "id": 6,
+            "file_no": 409,
+            "application_no": 2026309,
+            "national_id": "90010203040",
+            "full_name": "Cüneyt Arkın",
+            "application_date": "2026-01-19T21:00:00.000Z",
+            "aid_name": "SICAK_YEMEK",
+            "application_status": "Onaylandı",
+            "delivery_date": "2026-01-20",
+            "gender": "Erkek",
+            "age": 82,
+            "marital_status": "Evli"
+        }
+    ]
+}
