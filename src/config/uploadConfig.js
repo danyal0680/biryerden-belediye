@@ -10,7 +10,7 @@ const fileFilter = (req, file, cb) => {
   if (mimetype && extname) {
     return cb(null, true);
   } else {
-    cb(new Error('Yalnız şəkil faylları yükləyə bilərsiniz!'));
+    cb(new Error('Sadece resim dosyaları yükleyebilirsiniz!'));
   }
 };
 

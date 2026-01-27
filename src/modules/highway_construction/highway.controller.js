@@ -276,7 +276,7 @@ const createProject = async (req, res) => {
         projectId,
         detailId,
         photosCount: uploadedFiles.length,
-        message: "Layihə, detal və şəkillər uğurla yaradıldı"
+        message: "Proje, detay ve resimler başarıyla oluşturuldu"
       }
     });
   } catch (error) {
@@ -305,7 +305,7 @@ const uploadProjectPhoto = async (req, res) => {
     if (!detail) {
       return res.status(404).json({
         status: "error",
-        message: `Xəta: '${projectDetailId}' ID-li layihə detalı tapılmadı. Şəkil yükləməzdən əvvəl layihə detalı yaradılmalıdır.`
+        message: `Hata: '${projectDetailId}' ID'li proje detayı bulunamadı. Resim yüklemeden önce proje detayı oluşturulmalıdır.`
       });
     }
 
@@ -314,7 +314,7 @@ const uploadProjectPhoto = async (req, res) => {
       if (!person) {
         return res.status(404).json({
           status: "error",
-          message: `Xəta: '${uploadedById}' ID-li istifadəçi tapılmadı.`
+          message: `Hata: '${uploadedById}' ID'li kullanıcı bulunamadı.`
         });
       }
     }
@@ -352,7 +352,7 @@ const updateProject = async (req, res) => {
     const project = await models.Project.findByPk(id);
     if (!project) {
       await transaction.rollback();
-      return res.status(404).json({ status: "error", message: "Layihə tapılmadı." });
+      return res.status(404).json({ status: "error", message: "Proje bulunamadı." });
     }
 
     const {
@@ -450,7 +450,7 @@ const updateProject = async (req, res) => {
 
     return res.status(200).json({
       status: "success",
-      message: "Layihə uğurla yeniləndi."
+      message: "Proje başarıyla güncellendi."
     });
   } catch (error) {
     await transaction.rollback();
@@ -468,7 +468,7 @@ const patchProject = async (req, res) => {
     const project = await models.Project.findByPk(id);
     if (!project) {
       await transaction.rollback();
-      return res.status(404).json({ status: "error", message: "Layihə tapılmadı." });
+      return res.status(404).json({ status: "error", message: "Proje bulunamadı." });
     }
 
     const projectFields = ['projectCode', 'projectName', 'description', 'projectType', 'priority', 'category', 'status', 'isNew', 'isFavorite'];
@@ -540,7 +540,7 @@ const patchProject = async (req, res) => {
 
     return res.status(200).json({
       status: "success",
-      message: "Layihə uğurla yeniləndi."
+      message: "Proje başarıyla güncellendi."
     });
   } catch (error) {
     await transaction.rollback();
@@ -557,7 +557,7 @@ const deleteProject = async (req, res) => {
     const project = await models.Project.findByPk(id);
     if (!project) {
       await transaction.rollback();
-      return res.status(404).json({ status: "error", message: "Layihə tapılmadı." });
+      return res.status(404).json({ status: "error", message: "Proje bulunamadı." });
     }
 
     const detail = await models.ProjectDetail.findOne({ where: { projectId: id } });
@@ -613,7 +613,7 @@ const deleteProject = async (req, res) => {
 
     return res.status(200).json({
       status: "success",
-      message: "Layihə və bütün əlaqəli məlumatlar uğurla silindi."
+      message: "Proje ve tüm ilişkili veriler başarıyla silindi."
     });
   } catch (error) {
     await transaction.rollback();
@@ -628,14 +628,14 @@ const deleteProjectPhoto = async (req, res) => {
 
     const photo = await models.ProjectPhoto.findByPk(photoId);
     if (!photo) {
-      return res.status(404).json({ status: "error", message: "Şəkil tapılmadı." });
+      return res.status(404).json({ status: "error", message: "Resim bulunamadı." });
     }
 
     await models.ProjectPhoto.destroy({ where: { id: photoId } });
 
     return res.status(200).json({
       status: "success",
-      message: "Şəkil uğurla silindi."
+      message: "Resim başarıyla silindi."
     });
   } catch (error) {
     return res.status(500).json({ status: "error", message: error.message });

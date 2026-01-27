@@ -12,7 +12,6 @@ const getProjectIncludes = (models, fullDetail = false) => {
 
   if (!fullDetail) return baseIncludes;
 
-  // Əgər tək layihə (detail) istənirsə, dərin join-ləri əlavə et
   return [
     ...baseIncludes,
     {

@@ -3,6 +3,7 @@ import defineProjectModels from '../modules/highway_construction/highway.models.
 import { getTenantUserModel } from '../modules/tenant/tenant.models.js';
 import defineIllegalModels from '../modules/illegal_construction/illegal.models.js';
 import defineAidApplicationModels from '../modules/applications/applications.models.js';
+import defineRegisteredInventoryModels from '../modules/registered_inventory/inventory.models.js';
 
 const initTenantModels = (sequelize) => {
     socialService(sequelize);
@@ -10,6 +11,7 @@ const initTenantModels = (sequelize) => {
     getTenantUserModel(sequelize);
     defineIllegalModels(sequelize);
     defineAidApplicationModels(sequelize);
+    defineRegisteredInventoryModels(sequelize);
 };
 
 export default initTenantModels;
