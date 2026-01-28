@@ -4,6 +4,7 @@ import { getTenantUserModel } from '../modules/tenant/tenant.models.js';
 import defineIllegalModels from '../modules/illegal_construction/illegal.models.js';
 import defineAidApplicationModels from '../modules/applications/applications.models.js';
 import defineRegisteredInventoryModels from '../modules/registered_inventory/inventory.models.js';
+import defineCulturalHeritageModels from '../modules/cultural_heritage/heritage.models.js';
 
 const initTenantModels = (sequelize) => {
     socialService(sequelize);
@@ -12,6 +13,7 @@ const initTenantModels = (sequelize) => {
     defineIllegalModels(sequelize);
     defineAidApplicationModels(sequelize);
     defineRegisteredInventoryModels(sequelize);
+    defineCulturalHeritageModels(sequelize);
 };
 
 export default initTenantModels;

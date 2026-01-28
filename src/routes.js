@@ -8,6 +8,7 @@ import highwayRoutes from './modules/highway_construction/highway.routes.js';
 import illegalRoutes from './modules/illegal_construction/illegal.routes.js';
 import applicationsRoutes from './modules/applications/applications.routes.js';
 import inventoryRoutes from './modules/registered_inventory/inventory.routes.js';
+import heritageRoutes from './modules/cultural_heritage/heritage.routes.js';
 
 const apiRouter = express.Router();
 
@@ -19,5 +20,6 @@ apiRouter.use('/highway-construction', highwayRoutes);
 apiRouter.use('/illegal-construction', illegalRoutes);
 apiRouter.use('/social-aid', applicationsRoutes);
 apiRouter.use('/registered-inventory', inventoryRoutes);
+apiRouter.use('/cultural-heritage', heritageRoutes);
 
 export { baseRoutes, apiRouter };
