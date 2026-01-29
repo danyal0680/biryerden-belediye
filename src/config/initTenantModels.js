@@ -6,6 +6,7 @@ import defineAidApplicationModels from '../modules/applications/applications.mod
 import defineRegisteredInventoryModels from '../modules/registered_inventory/inventory.models.js';
 import defineCulturalHeritageModels from '../modules/cultural_heritage/heritage.models.js';
 import defineDirectoratePublicWorks from '../modules/directorate_public_works/public.models.js';
+import defineAsphaltPavementModels from '../modules/asphalt_pavement/asphalt.models.js';
 
 const initTenantModels = (sequelize) => {
     socialService(sequelize);
@@ -16,6 +17,7 @@ const initTenantModels = (sequelize) => {
     defineRegisteredInventoryModels(sequelize);
     defineCulturalHeritageModels(sequelize);
     defineDirectoratePublicWorks(sequelize);
+    defineAsphaltPavementModels(sequelize);
 };
 
 export default initTenantModels;

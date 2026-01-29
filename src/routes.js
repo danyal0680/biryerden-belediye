@@ -11,6 +11,7 @@ import inventoryRoutes from './modules/registered_inventory/inventory.routes.js'
 import heritageRoutes from './modules/cultural_heritage/heritage.routes.js';
 import publicRoutes from './modules/directorate_public_works/public.routes.js';
 import mobileAppRoutes from './modules/mobile_app/mobile.routes.js';
+import asphaltRoutes from './modules/asphalt_pavement/asphalt.routes.js';
 
 const apiRouter = express.Router();
 
@@ -25,5 +26,6 @@ apiRouter.use('/registered-inventory', inventoryRoutes);
 apiRouter.use('/cultural-heritage', heritageRoutes);
 apiRouter.use('/directorate-public-works', publicRoutes);
 apiRouter.use('/mobile-apps', mobileAppRoutes);
+apiRouter.use('/asphalt-pavements', asphaltRoutes);
 
 export { baseRoutes, apiRouter };
