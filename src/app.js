@@ -1,6 +1,7 @@
 import express from 'express';
 import sequelize, { testConnection } from './config/database.js';
 import cors from 'cors';
+import { createProxyMiddleware } from 'http-proxy-middleware';
 import syncAllTenants from './config/synchronization.js';
 import corsOptions from './config/cors.js';
 import { baseRoutes, apiRouter } from './routes.js';
@@ -10,6 +11,13 @@ const app = express();
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use('/uploads', express.static('uploads'));
+
+app.use('/geoserver-proxy-gursu', createProxyMiddleware({
+    target: 'https://gursu.birtespit.com',
+    changeOrigin: true,
+    pathRewrite: { '^/geoserver-proxy-gursu': '/geoserver-proxy' },
+}));
+
 app.use('/', baseRoutes);
 app.use('/api', apiRouter);
 
