@@ -9,6 +9,7 @@ import illegalRoutes from './modules/illegal_construction/illegal.routes.js';
 import applicationsRoutes from './modules/applications/applications.routes.js';
 import inventoryRoutes from './modules/registered_inventory/inventory.routes.js';
 import heritageRoutes from './modules/cultural_heritage/heritage.routes.js';
+import publicRoutes from './modules/directorate_public_works/public.routes.js';
 
 const apiRouter = express.Router();
 
@@ -21,5 +22,6 @@ apiRouter.use('/illegal-construction', illegalRoutes);
 apiRouter.use('/social-aid', applicationsRoutes);
 apiRouter.use('/registered-inventory', inventoryRoutes);
 apiRouter.use('/cultural-heritage', heritageRoutes);
+apiRouter.use('/directorate-public-works', publicRoutes);
 
 export { baseRoutes, apiRouter };

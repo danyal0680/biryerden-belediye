@@ -1,9 +1,11 @@
 import express from 'express';
 import { resolveTenant } from '../../middleware/tenantResolver.js';
 import { authenticate } from '../../middleware/admin_auth.middleware.js';
-import createUploader from '../../config/uploadConfig.js';
+import { createUploader, createMixedUploader } from '../../config/uploadConfig.js';
 
 const upload = createUploader('highway_projects');
+const mixedUpload = createMixedUploader('highway_projects');
+
 import {
     getAllProjects,
     getProject,
@@ -23,9 +25,9 @@ const router = express.Router();
 
 router.get('/projects', resolveTenant, authenticate, getAllProjects);
 router.get('/project/:id', resolveTenant, authenticate, getProject);
-router.post('/project', resolveTenant, authenticate, upload.array('photos', 20), createProject);
-router.put('/project/:id', resolveTenant, authenticate, upload.array('photos', 20), updateProject);
-router.patch('/project/:id', resolveTenant, authenticate, patchProject);
+router.post('/project', resolveTenant, authenticate, mixedUpload.fields([{ name: 'photos', maxCount: 20 }, { name: 'documents', maxCount: 20 }]), createProject);
+router.put('/project/:id', resolveTenant, authenticate, mixedUpload.fields([{ name: 'photos', maxCount: 20 }, { name: 'documents', maxCount: 20 }]), updateProject);
+router.patch('/project/:id', resolveTenant, authenticate, mixedUpload.fields([{ name: 'photos', maxCount: 20 }, { name: 'documents', maxCount: 20 }]), patchProject);
 router.delete('/project/:id', resolveTenant, authenticate, deleteProject);
 router.get('/options/teams', resolveTenant, authenticate, getTeamsList);
 router.get('/options/managers', resolveTenant, authenticate, getManagersList);

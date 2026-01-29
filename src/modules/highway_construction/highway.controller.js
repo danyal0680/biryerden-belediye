@@ -1,6 +1,8 @@
 import defineProjectModels from "./highway.models.js";
 import { schemaProjectDetail, schemaProjectSummary } from "./highway.schema.js";
 import { getProjectIncludes } from "./highway.includes.js";
+import fs from "fs";
+import path from "path";
 
 const getAllProjects = async (req, res) => {
   try {
@@ -243,12 +245,14 @@ const createProject = async (req, res) => {
       }, { transaction });
     }
 
-    const uploadedFiles = req.files || [];
     const baseUrl = process.env.BASE_URL;
+    
+    const uploadedPhotos = req.files?.photos || [];
+    let photosCount = 0;
 
-    if (uploadedFiles.length > 0) {
-      for (let i = 0; i < uploadedFiles.length; i++) {
-        const file = uploadedFiles[i];
+    if (uploadedPhotos.length > 0) {
+      for (let i = 0; i < uploadedPhotos.length; i++) {
+        const file = uploadedPhotos[i];
 
         await models.ProjectPhoto.create({
           id: `photo-${Date.now()}-${i}`,
@@ -265,6 +269,29 @@ const createProject = async (req, res) => {
           width: null,
           height: null
         }, { transaction });
+        photosCount++;
+      }
+    }
+
+    const uploadedDocuments = req.files?.documents || [];
+    let documentsCount = 0;
+
+    if (uploadedDocuments.length > 0) {
+      for (let i = 0; i < uploadedDocuments.length; i++) {
+        const file = uploadedDocuments[i];
+        const ext = path.extname(file.originalname).toLowerCase().replace('.', '');
+
+        await models.ProjectDocument.create({
+          id: `doc-${Date.now()}-${i}`,
+          projectDetailId: detailId,
+          category: ext.toUpperCase(),
+          fileName: file.originalname,
+          uploadedAt: new Date(),
+          fileSize: file.size || 0,
+          uploadedBy: null,
+          url: `${baseUrl}/uploads/highway_projects/${file.filename}`
+        }, { transaction });
+        documentsCount++;
       }
     }
 
@@ -275,8 +302,9 @@ const createProject = async (req, res) => {
       data: {
         projectId,
         detailId,
-        photosCount: uploadedFiles.length,
-        message: "Proje, detay ve resimler başarıyla oluşturuldu"
+        photosCount,
+        documentsCount,
+        message: "Proje, detay, resimler ve dokümanlar başarıyla oluşturuldu"
       }
     });
   } catch (error) {
@@ -368,7 +396,8 @@ const updateProject = async (req, res) => {
       dates,
       budget,
       isNew,
-      isFavorite
+      isFavorite,
+      photosToDelete
     } = formData;
 
     await models.Project.update({
@@ -383,7 +412,7 @@ const updateProject = async (req, res) => {
       isFavorite
     }, { where: { id }, transaction });
 
-    const detail = await models.ProjectDetail.findOne({ where: { projectId: id } });
+    let detail = await models.ProjectDetail.findOne({ where: { projectId: id } });
     if (detail) {
       await models.ProjectDetail.update({
         projectCode,
@@ -396,6 +425,22 @@ const updateProject = async (req, res) => {
         isNew,
         isFavorite
       }, { where: { projectId: id }, transaction });
+    } else {
+      const detailId = `det-${Date.now()}`;
+      detail = await models.ProjectDetail.create({
+        id: detailId,
+        projectId: id,
+        projectCode: projectCode || null,
+        projectName: projectName || null,
+        description: description || null,
+        projectType: projectType || null,
+        priority: priority || null,
+        category: category || null,
+        status: status || "construction",
+        reportUrl: "",
+        isNew: isNew || false,
+        isFavorite: isFavorite || false
+      }, { transaction });
     }
 
     if (location) {
@@ -446,11 +491,103 @@ const updateProject = async (req, res) => {
       }, { transaction });
     }
 
+    let deletedPhotosCount = 0;
+    if (photosToDelete && Array.isArray(photosToDelete) && photosToDelete.length > 0) {
+      for (const photoId of photosToDelete) {
+        const photo = await models.ProjectPhoto.findByPk(photoId);
+        if (photo) {
+          if (photo.url) {
+            const filename = photo.url.split('/').pop();
+            const filePath = path.join('uploads', 'highway_projects', filename);
+            if (fs.existsSync(filePath)) {
+              fs.unlinkSync(filePath);
+            }
+          }
+          await models.ProjectPhoto.destroy({ where: { id: photoId }, transaction });
+          deletedPhotosCount++;
+        }
+      }
+    }
+
+    let deletedDocumentsCount = 0;
+    if (formData.documentsToDelete && Array.isArray(formData.documentsToDelete) && formData.documentsToDelete.length > 0) {
+      for (const docId of formData.documentsToDelete) {
+        const doc = await models.ProjectDocument.findByPk(docId);
+        if (doc) {
+          if (doc.url) {
+            const filename = doc.url.split('/').pop();
+            const filePath = path.join('uploads', 'highway_projects', filename);
+            if (fs.existsSync(filePath)) {
+              fs.unlinkSync(filePath);
+            }
+          }
+          await models.ProjectDocument.destroy({ where: { id: docId }, transaction });
+          deletedDocumentsCount++;
+        }
+      }
+    }
+
+    const uploadedPhotos = req.files?.photos || [];
+    const baseUrl = process.env.BASE_URL;
+    let addedPhotosCount = 0;
+
+    if (uploadedPhotos.length > 0 && detail) {
+      for (let i = 0; i < uploadedPhotos.length; i++) {
+        const file = uploadedPhotos[i];
+        await models.ProjectPhoto.create({
+          id: `photo-${Date.now()}-${i}`,
+          projectDetailId: detail.id,
+          url: `${baseUrl}/uploads/highway_projects/${file.filename}`,
+          thumbnailUrl: `${baseUrl}/uploads/highway_projects/${file.filename}`,
+          title: file.originalname || "Yeni Foto",
+          description: "",
+          uploadedAt: new Date(),
+          uploadedById: null,
+          location: "",
+          tags: [],
+          fileSize: file.size || 0,
+          width: null,
+          height: null
+        }, { transaction });
+        addedPhotosCount++;
+      }
+    }
+
+    const uploadedDocuments = req.files?.documents || [];
+    let addedDocumentsCount = 0;
+
+    if (uploadedDocuments.length > 0 && detail) {
+      for (let i = 0; i < uploadedDocuments.length; i++) {
+        const file = uploadedDocuments[i];
+        const ext = path.extname(file.originalname).toLowerCase().replace('.', '');
+
+        await models.ProjectDocument.create({
+          id: `doc-${Date.now()}-${i}`,
+          projectDetailId: detail.id,
+          category: ext.toUpperCase(),
+          fileName: file.originalname,
+          uploadedAt: new Date(),
+          fileSize: file.size || 0,
+          uploadedBy: null,
+          url: `${baseUrl}/uploads/highway_projects/${file.filename}`
+        }, { transaction });
+        addedDocumentsCount++;
+      }
+    }
+
     await transaction.commit();
 
     return res.status(200).json({
       status: "success",
-      message: "Proje başarıyla güncellendi."
+      message: "Proje başarıyla güncellendi.",
+      photos: {
+        added: addedPhotosCount,
+        deleted: deletedPhotosCount
+      },
+      documents: {
+        added: addedDocumentsCount,
+        deleted: deletedDocumentsCount
+      }
     });
   } catch (error) {
     await transaction.rollback();
@@ -536,11 +673,122 @@ const patchProject = async (req, res) => {
       }
     }
 
+    let deletedPhotosCount = 0;
+    if (updates.photosToDelete && Array.isArray(updates.photosToDelete) && updates.photosToDelete.length > 0) {
+      for (const photoId of updates.photosToDelete) {
+        const photo = await models.ProjectPhoto.findByPk(photoId);
+        if (photo) {
+          if (photo.url) {
+            const filename = photo.url.split('/').pop();
+            const filePath = path.join('uploads', 'highway_projects', filename);
+            if (fs.existsSync(filePath)) {
+              fs.unlinkSync(filePath);
+            }
+          }
+          await models.ProjectPhoto.destroy({ where: { id: photoId }, transaction });
+          deletedPhotosCount++;
+        }
+      }
+    }
+
+    let deletedDocumentsCount = 0;
+    if (updates.documentsToDelete && Array.isArray(updates.documentsToDelete) && updates.documentsToDelete.length > 0) {
+      for (const docId of updates.documentsToDelete) {
+        const doc = await models.ProjectDocument.findByPk(docId);
+        if (doc) {
+          if (doc.url) {
+            const filename = doc.url.split('/').pop();
+            const filePath = path.join('uploads', 'highway_projects', filename);
+            if (fs.existsSync(filePath)) {
+              fs.unlinkSync(filePath);
+            }
+          }
+          await models.ProjectDocument.destroy({ where: { id: docId }, transaction });
+          deletedDocumentsCount++;
+        }
+      }
+    }
+
+    const baseUrl = process.env.BASE_URL;
+    let addedPhotosCount = 0;
+    let addedDocumentsCount = 0;
+
+    // Yeni resim veya doküman varsa detail'in varlığını kontrol et
+    const uploadedPhotos = req.files?.photos || [];
+    const uploadedDocuments = req.files?.documents || [];
+
+    if (uploadedPhotos.length > 0 || uploadedDocuments.length > 0) {
+      let detail = await models.ProjectDetail.findOne({ where: { projectId: id } });
+      
+      if (!detail) {
+        const detailId = `det-${Date.now()}`;
+        detail = await models.ProjectDetail.create({
+          id: detailId,
+          projectId: id,
+          projectCode: project.projectCode || null,
+          projectName: project.projectName || null,
+          description: project.description || null,
+          projectType: project.projectType || null,
+          priority: project.priority || null,
+          category: project.category || null,
+          status: project.status || "construction",
+          reportUrl: "",
+          isNew: project.isNew || false,
+          isFavorite: project.isFavorite || false
+        }, { transaction });
+      }
+
+      for (let i = 0; i < uploadedPhotos.length; i++) {
+        const file = uploadedPhotos[i];
+        await models.ProjectPhoto.create({
+          id: `photo-${Date.now()}-${i}`,
+          projectDetailId: detail.id,
+          url: `${baseUrl}/uploads/highway_projects/${file.filename}`,
+          thumbnailUrl: `${baseUrl}/uploads/highway_projects/${file.filename}`,
+          title: file.originalname || "Yeni Foto",
+          description: "",
+          uploadedAt: new Date(),
+          uploadedById: null,
+          location: "",
+          tags: [],
+          fileSize: file.size || 0,
+          width: null,
+          height: null
+        }, { transaction });
+        addedPhotosCount++;
+      }
+
+      for (let i = 0; i < uploadedDocuments.length; i++) {
+        const file = uploadedDocuments[i];
+        const ext = path.extname(file.originalname).toLowerCase().replace('.', '');
+
+        await models.ProjectDocument.create({
+          id: `doc-${Date.now()}-${i}`,
+          projectDetailId: detail.id,
+          category: ext.toUpperCase(),
+          fileName: file.originalname,
+          uploadedAt: new Date(),
+          fileSize: file.size || 0,
+          uploadedBy: null,
+          url: `${baseUrl}/uploads/highway_projects/${file.filename}`
+        }, { transaction });
+        addedDocumentsCount++;
+      }
+    }
+
     await transaction.commit();
 
     return res.status(200).json({
       status: "success",
-      message: "Proje başarıyla güncellendi."
+      message: "Proje başarıyla güncellendi.",
+      photos: {
+        added: addedPhotosCount,
+        deleted: deletedPhotosCount
+      },
+      documents: {
+        added: addedDocumentsCount,
+        deleted: deletedDocumentsCount
+      }
     });
   } catch (error) {
     await transaction.rollback();
